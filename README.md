@@ -26,5 +26,6 @@ TLV Parser written Rust
 | 16.   | GIF              | :x:    |
 | 17.   | FLV              | :x:    |
 
-:white_check_mark: -> Done
+:heavy_check_mark: -> Done
+
 :x:  -> Not Done
