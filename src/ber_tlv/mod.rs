@@ -1,31 +1,37 @@
-use super::tag_length::TagLength;
+pub(crate) mod tag_length;
+pub mod tlv_parser_error;
+
 use crate::traits::RustParser;
 use std::{
     fs::File,
     io::{BufReader, Read},
 };
 
-pub(crate) struct BerTlvParser {
+use self::tag_length::TagLength;
+
+pub struct BerTlv {
     tag_length: Vec<TagLength>,
     offset: usize,
     file: File,
 }
 
-impl RustParser for BerTlvParser {
+impl RustParser for BerTlv {
     fn write_to_file() {
         todo!()
     }
 }
 
-impl BerTlvParser {
-    pub fn new(mut file: File) -> BerTlvParser {
+impl BerTlv {
+    pub(crate) fn new(mut file: File) -> BerTlv {
         let buf_reader = BufReader::new(&file);
 
         for (i, byte) in buf_reader.bytes().enumerate() {
-            if let Ok(data) = byte {}
+            if let Ok(data) = byte {
+                print!("{:02X}", data);
+            }
         }
 
-        let mut tlv_parser = BerTlvParser {
+        let mut tlv_parser = BerTlv {
             offset: 0,
             file: file,
             tag_length: vec![TagLength {
