@@ -25,6 +25,8 @@ Parser for various data types written in rust written Rust
 | 15.   | BMP         | :x:    |
 | 16.   | GIF         | :x:    |
 | 17.   | FLV         | :x:    |
+| 18.   | Kdump       | :x:    |
+| 19.   | Elf Kdump   | :x:    |
 
 :heavy_check_mark: -> Done
 
