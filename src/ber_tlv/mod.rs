@@ -9,37 +9,42 @@ use std::{
 
 use self::tag_length::TagLength;
 
-pub struct BerTlv {
+#[derive(Debug)]
+pub struct BerTlv<'a> {
     tag_length: Vec<TagLength>,
     offset: usize,
-    file: File,
+    file: &'a File,
 }
 
-impl RustParser for BerTlv {
+impl<'a> RustParser for BerTlv<'a> {
     fn write_to_file() {
         todo!()
     }
-}
 
-impl BerTlv {
-    pub(crate) fn new(mut file: File) -> BerTlv {
-        let buf_reader = BufReader::new(&file);
+    fn print(&self) {
+        let buf_reader = BufReader::new(self.file);
 
-        for (i, byte) in buf_reader.bytes().enumerate() {
+        for (_i, byte) in buf_reader.bytes().enumerate() {
             if let Ok(data) = byte {
                 print!("{:02X}", data);
             }
         }
+    }
+}
 
-        let mut tlv_parser = BerTlv {
+impl<'a> BerTlv<'a> {
+    pub(crate) fn new(file: &File) -> BerTlv {
+        let tlv_parser = BerTlv {
             offset: 0,
-            file: file,
+            file,
             tag_length: vec![TagLength {
                 val_offset: 0,
                 tag: vec![1, 2, 3, 4],
                 len: 3,
             }],
         };
+
+        tlv_parser.print();
         return tlv_parser;
     }
 }
