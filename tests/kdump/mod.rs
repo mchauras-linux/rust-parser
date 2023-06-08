@@ -1,14 +1,8 @@
-use std::{env, fs::File};
-
-use rust_parser::RustParser;
+use rust_parser::{kdump::Kdump, traits::FileParser, RustParser};
 
 #[test]
 pub fn kdump() {
-    match File::open("./tests/assets/data1.ber".to_string()) {
-        Ok(file) => {
-            RustParser::get_kdump_parser(&file);
-            assert!(true);
-        }
-        Err(e) => println!("{}:Current Dir: {:#?}", e, env::current_dir()),
-    }
+    let kdump: Kdump = RustParser::get_kdump_parser("./tests/assets/ber-tlv/data1.ber");
+    kdump.print();
+    assert!(true);
 }

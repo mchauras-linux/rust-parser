@@ -1,16 +1,19 @@
-use std::fs::File;
-
 use ber_tlv::BerTlv;
 use kdump::Kdump;
 
-mod ber_tlv;
-mod kdump;
-mod traits;
+pub mod ber_tlv;
+pub mod kdump;
+pub mod traits;
 
 /// Rust Parser core entry point
 pub enum RustParser {}
 
 impl RustParser {
+    /// Get Absolute path from a relative one
+    fn get_abs_path(file: &str) {
+        //absolute(file);
+    }
+
     /// Get BER-TLV Parser object
     /// # Example
     /// ```
@@ -25,7 +28,7 @@ impl RustParser {
     /// }
     ///
     /// ```
-    pub fn get_ber_tlv_parser(file: &File) -> BerTlv {
+    pub fn get_ber_tlv_parser(file: &str) -> BerTlv {
         BerTlv::new(file)
     }
 
@@ -43,7 +46,7 @@ impl RustParser {
     /// }
     ///
     /// ```
-    pub fn get_kdump_parser(file: &File) -> Kdump {
+    pub fn get_kdump_parser(file: &str) -> Kdump {
         Kdump::new(file)
     }
 }
