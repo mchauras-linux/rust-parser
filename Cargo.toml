@@ -1,6 +1,6 @@
 [package]
 name = "rust-parser"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["Muksh Kumar Chaurasiya <mchauras.linux@gmail.com>"]
 description = "Parser for various data types written in rust written Rust"
