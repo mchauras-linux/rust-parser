@@ -28,7 +28,8 @@ impl RustParser {
     /// }
     ///
     /// ```
-    pub fn get_ber_tlv_parser(file: &str) -> BerTlv {
+    /// Returns a BER-TLV Parser object
+    pub fn get_ber_tlv_parser(file: File) -> BerTlv {
         BerTlv::new(file)
     }
 
