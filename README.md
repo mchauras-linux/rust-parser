@@ -1,5 +1,5 @@
 # rust-parser
-Parser for various data types written in rust written Rust
+Parser for various data types and file types written in rust
 
 
 # TODO List for the parser
